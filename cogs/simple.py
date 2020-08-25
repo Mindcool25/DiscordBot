@@ -18,9 +18,10 @@ class MembersCog(commands.Cog):
 		return
 	@commands.command(
 		name="quote",
-		description="Get a random quote from the wonderful dnd group."
-		aliases=
+		description="Get a random quote from the wonderful dnd group.",
+		aliases=['q']
 	)
-
+	async def quote_command():
+		return
 def setup(bot):
 	bot.add_cog(MembersCog(bot))
