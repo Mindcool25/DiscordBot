@@ -17,9 +17,8 @@ class BasicCog(commands.Cog):
 		msg = await ctx.send(content='Pinging')
 		await msg.edit(
 		content=
-		f'Pong!\nOne message round-trip took {( d.timestamp( d.now() ) - start ) * 1000 }ms.'
-	)
-		return
+		f'Pong!\nOne message round-trip took {( d.timestamp( d.now() ) - start ) * 1000 }ms.')
+		await msg.add_reaction('\N{THUMBS UP SIGN}')
 
 	@commands.command(
 		name="quote",
@@ -27,27 +26,27 @@ class BasicCog(commands.Cog):
 		aliases=['q'])
 	async def quote_command(self, ctx):
 		quotes = (
-		'“Sometimes less is think... More”\n-Daniel / @Stik555 ',
-		'“It’s sky color”\n-Kyle / @Mastachi ',
-		'“Bug sanitizer”\n-Daniel / @Stik555 ',
-		'"Spray it in your eyes, thats where it tastes best"\n-Kyle / @Mastachi',
-		"Tell us if you are the killer, or don't if your not!\n-Ethan / @BBJPZ",
-		'“To be or not to be with a woman”\n-Ethan / @BBJPZ on flirting',
-		'“I know just the role play server to stand in front of”\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-		'"You do not have the equipment to slow cook the bear."\n-Daniel / @Stik555',
-		'"You just throw corn at him in rage!"\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-		'"*Sexy fire noises*"\n-Daniel / @Stik555',
-		'"Go Jebidiah!"\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-		'“I WILL MICROWAVE AT YOU”\n-Daniel/@Stik555',
-		'“I am the winner because the box has chosen me!!!!”\n-Daniel / @Stik555',
-		'“It was a mutual nonconsensual mauling”\n-Daniel/@Stik555',
-		'“#SeeTheChicken #SaveTheChicken”\n-Daniel/@Stik555',
-		"'Nah, we'll be fine. And if not...\nWe'll be fine.'\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉",
-		'“There is always a place for innuendos” -Kyle/ @Mastachi',
-		'“But Charlie....” -Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-		'“I was trying to touch your feet but didn’t feel it” \n“Yah I felt that”\n-Ethan and Daniel / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉ @Stik555',
-		'“I gotta zoom meeting, so back to the closet”\n-Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-		'“Do you know how much I want a beer belly and can’t get one”\n-Joseph / @Fuitnugget23'
+			'“Sometimes less is think... More”\n-Daniel / @Stik555 ',
+			'“It’s sky color”\n-Kyle / @Mastachi ',
+			'“Bug sanitizer”\n-Daniel / @Stik555 ',
+			'"Spray it in your eyes, thats where it tastes best"\n-Kyle / @Mastachi',
+			"Tell us if you are the killer, or don't if your not!\n-Ethan / @BBJPZ",
+			'“To be or not to be with a woman”\n-Ethan / @BBJPZ on flirting',
+			'“I know just the role play server to stand in front of”\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'"You do not have the equipment to slow cook the bear."\n-Daniel / @Stik555',
+			'"You just throw corn at him in rage!"\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'"*Sexy fire noises*"\n-Daniel / @Stik555',
+			'"Go Jebidiah!"\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'“I WILL MICROWAVE AT YOU”\n-Daniel/@Stik555',
+			'“I am the winner because the box has chosen me!!!!”\n-Daniel / @Stik555',
+			'“It was a mutual nonconsensual mauling”\n-Daniel/@Stik555',
+			'“#SeeTheChicken #SaveTheChicken”\n-Daniel/@Stik555',
+			"'Nah, we'll be fine. And if not...\nWe'll be fine.'\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉",
+			'“There is always a place for innuendos” -Kyle/ @Mastachi',
+			'“But Charlie....” -Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'“I was trying to touch your feet but didn’t feel it” \n“Yah I felt that”\n-Ethan and Daniel / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉ @Stik555',
+			'“I gotta zoom meeting, so back to the closet”\n-Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'“Do you know how much I want a beer belly and can’t get one”\n-Joseph / @Fuitnugget23'
 		)
 		quote = quotes[randint(0, len(quotes) - 1)]
 		msg = await ctx.send(content=quote)
@@ -61,4 +60,4 @@ class BasicCog(commands.Cog):
 		return
 
 def setup(bot):
-		bot.add_cog(BasicCog(bot))
+	bot.add_cog(BasicCog(bot))
