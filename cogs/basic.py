@@ -18,7 +18,6 @@ class BasicCog(commands.Cog):
 		await msg.edit(
 		content=
 		f'Pong!\nOne message round-trip took {( d.timestamp( d.now() ) - start ) * 1000 }ms.')
-		await msg.add_reaction('\N{THUMBS UP SIGN}')
 
 	@commands.command(
 		name="quote",

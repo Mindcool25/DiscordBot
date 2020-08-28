@@ -1,5 +1,3 @@
-from random import *
-import discord
 from discord.ext import commands
 
 GUILD_ID = 725343462291144764
@@ -15,8 +13,8 @@ class SuggestCog(commands.Cog):
 		aliases=['s']
 	)
 	async def SuggestCommand(self, ctx, *, s_input: str):
-		author = ctx.author
-		suggestion = 'suggestion by: '+ author.mention + '\n' + '**' + s_input + '**' + '\nPlease react with :arrow_up: or :arrow_down: to vote'
+		author = str(ctx.author)
+		suggestion = 'suggestion by: '+ author + '\n' + '**' + s_input + '**' + '\nPlease react with :arrow_up: or :arrow_down: to vote'
 		channel = self.bot.get_channel(725361186383724577)
 		msg = await channel.send(suggestion)
 		await msg.add_reaction('⬆')
