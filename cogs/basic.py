@@ -45,7 +45,18 @@ class BasicCog(commands.Cog):
 			'“But Charlie....” -Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
 			'“I was trying to touch your feet but didn’t feel it” \n“Yah I felt that”\n-Ethan and Daniel / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉ @Stik555',
 			'“I gotta zoom meeting, so back to the closet”\n-Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
-			'“Do you know how much I want a beer belly and can’t get one”\n-Joseph / @Fuitnugget23'
+			'“Do you know how much I want a beer belly and can’t get one”\n-Joseph / @Fuitnugget23',
+			'"I don\'t... want to be a prostitute"\n-Maggi / @AndPeggy',
+			'"Alliteration sells... beer"\n- Daniel / @Stik555',
+			'"gastropod weeness"\n- Daniel / @Stik555',
+			'“Farmer Brown’s mushrooms”\n-Kyle / @Mastachi on psychedelics',
+			'"You can hear it whisper into your ear, as you hear its wet, plump lips smacking against each other. It blinks, letting out a sickly squelch as its eye lids separate once more."\n-Daniel / @Stik555\n:eye: :lips: :eye:',
+			'“Losing a bet is the best excuse for everything”\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'“You know what would be a real smart war crime?”\n-Seth / @Owenthegreat',
+			'“I wanted to stab him but I had to die!”\n-Ethan / @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'"My favorite 2 characters to mate..."\n-Ethan / @BBJPZ',
+			'“Alternatively Wufff!”\n-Ethan/ @W͡҉͞͡à̢͡n̴͝͝d̶̛̛é͡͝r̶͝͡ę̴͘r҉',
+			'"What do boys do when they get together? Thigh shaping in sequence ensues"\n-Daniel / @Stik555'
 		)
 		quote = quotes[randint(0, len(quotes) - 1)]
 		msg = await ctx.send(content=quote)
