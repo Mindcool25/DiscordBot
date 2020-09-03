@@ -67,6 +67,12 @@ class BasicCog(commands.Cog):
 				usage='.oi <number of ois>'
 			)
 	async def oi_command(self, ctx):
+		msg = ctx.message.content
+		prefix_used = ctx.prefix
+		alias_used = ctx.invoked_with
+		ois = msg[len(prefix_used) + len(alias_used):]
+		for x in range(int(ois)):
+			msg = await ctx.send('oi')
 		return
 
 def setup(bot):
