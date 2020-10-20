@@ -6,7 +6,6 @@ from datetime import datetime as d
 quotefile = open("cogs/quotes.txt","r")
 quotestr = quotefile.read()
 quotelist = quotestr.split(' endquote*')
-print(quotelist)
 
 class BasicCog(commands.Cog):
 		def __init__(self, bot):
@@ -50,7 +49,17 @@ class BasicCog(commands.Cog):
 						for x in range(int(ois)):
 								msg = await ctx.send('oi')
 				return
-
+		
+		@commands.command(
+			name='github',
+			description='Get a link to the github page for bot source code.',
+			aliases=['g','code','source']
+		)
+		async def github_command(self,ctx):
+			link = 'link to source code:\nhttps://github.com/Mindcool25/DiscordBot'
+			print('Sending link...')
+			mesg = await ctx.send(content=link)
+			return
 
 def setup(bot):
 		bot.add_cog(BasicCog(bot))
