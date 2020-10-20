@@ -58,7 +58,7 @@ class BasicCog(commands.Cog):
 		async def github_command(self,ctx):
 			link = 'link to source code:\nhttps://github.com/Mindcool25/DiscordBot'
 			print('Sending link...')
-			mesg = await ctx.send(content=link)
+			msg = await ctx.send(content=link)
 			return
 
 def setup(bot):
