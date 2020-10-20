@@ -9,7 +9,7 @@ def get_prefix(bot, message):
     return commands.when_mentioned_or(*prefixes)(bot, message)
 
 
-extensions = ['cogs.basic','cogs.suggest']
+extensions = ['cogs.basic','cogs.suggest','cogs.fun']
 
 bot = commands.Bot(
     command_prefix=get_prefix, description='A bot for general use.')

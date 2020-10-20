@@ -15,6 +15,7 @@ class SuggestCog(commands.Cog):
 	async def SuggestCommand(self, ctx, *, s_input: str):
 		author = str(ctx.author)
 		suggestion = 'suggestion by: '+ author + '\n' + '**' + s_input + '**' + '\nPlease react with :arrow_up: or :arrow_down: to vote'
+		print(f"Sent suggestion {suggestion}")
 		channel = self.bot.get_channel(725361186383724577)
 		msg = await channel.send(suggestion)
 		await msg.add_reaction('⬆')
