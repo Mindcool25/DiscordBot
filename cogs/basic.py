@@ -36,6 +36,18 @@ class BasicCog(commands.Cog):
 				return
 
 		@commands.command(
+			name='quotenum',
+			description='Show how many quotes there are.',
+			aliases = ['qn']
+		)
+		async def quotenum_command(self, ctx):
+			quotes = quotelist
+			print(f"Sending quote number.. Grand totall of {len(quotes)}")
+			sent = f"There are {len(quotes)} quotes in quotebot."
+			msg = await ctx.send(content=sent)
+			return
+
+		@commands.command(
 				name='oi',
 				description='Oi mate get over here!',
 				usage='.oi <number of ois>')
