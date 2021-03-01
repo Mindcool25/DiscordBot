@@ -2,10 +2,10 @@ from random import *
 import discord
 from discord.ext import commands
 from datetime import datetime as d
+import json
 
-quotefile = open("cogs/quotes.txt","r")
-quotestr = quotefile.read()
-quotelist = quotestr.split(' endquote*')
+f = open('cogs/quotes.json')
+quotes = json.load(f)
 
 class BasicCog(commands.Cog):
 		def __init__(self, bot):
@@ -29,10 +29,11 @@ class BasicCog(commands.Cog):
 				description="Get a random quote from the wonderful group of friends.",
 				aliases=['q'])
 		async def quote_command(self, ctx):
-				quotes = quotelist
-				quote = quotes[randint(0, len(quotes) - 1)]
-				print(f"Sending quote {quote}...")
-				msg = await ctx.send(content=quote)
+				quote, author = choice(list(quotes.items()))
+				sending = f"{quote}\n- {author}"
+
+				print(f"Sending quote\n{quote}\n- {author}...")
+				msg = await ctx.send(content=sending)
 				return
 
 		@commands.command(
@@ -42,7 +43,7 @@ class BasicCog(commands.Cog):
 		)
 		async def quotenum_command(self, ctx):
 			quotes = quotelist
-			print(f"Sending quote number.. Grand totall of {len(quotes)}")
+			print(f"Sending quote number.. Grand total of {len(quotes)}")
 			sent = f"There are {len(quotes)} quotes in quotebot."
 			msg = await ctx.send(content=sent)
 			return
