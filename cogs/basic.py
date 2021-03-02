@@ -42,7 +42,6 @@ class BasicCog(commands.Cog):
 			aliases = ['qn']
 		)
 		async def quotenum_command(self, ctx):
-			quotes = quotelist
 			print(f"Sending quote number.. Grand total of {len(quotes)}")
 			sent = f"There are {len(quotes)} quotes in quotebot."
 			msg = await ctx.send(content=sent)
