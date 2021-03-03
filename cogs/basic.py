@@ -42,9 +42,31 @@ class BasicCog(commands.Cog):
 			aliases = ['qn']
 		)
 		async def quotenum_command(self, ctx):
-			print(f"Sending quote number.. Grand total of {len(quotes)}")
+			print(f"Sending quote number... Grand total of {len(quotes)}")
 			sent = f"There are {len(quotes)} quotes in quotebot."
 			msg = await ctx.send(content=sent)
+			return
+
+		@commands.command(
+			name='quotestats',
+			description='Search for word in all quotes and returns number of times that word appeared.',
+			aliases=['qs']
+		)
+		async def quotestats_command(self, ctx):
+			count = 1
+			msg = ctx.message.content
+			prefix_used = ctx.prefix
+			alias_used = ctx.invoked_with
+			word = msg[len(prefix_used) + len(alias_used):]
+			word = word[1:]
+			msg = await ctx.send(content='Searching...')
+			for i in quotes:
+				if word in i:
+					count += 1
+				if word in quotes[i]:
+					count +=1
+			await msg.edit(content=f"There are {count} instances of '{word}'.")
+			print(f"Found {count} instances of '{word}'")
 			return
 
 		@commands.command(
