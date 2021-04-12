@@ -53,7 +53,7 @@ class BasicCog(commands.Cog):
 			aliases=['qs']
 		)
 		async def quotestats_command(self, ctx):
-			count = 1
+			count = 0
 			msg = ctx.message.content
 			prefix_used = ctx.prefix
 			alias_used = ctx.invoked_with
@@ -63,11 +63,37 @@ class BasicCog(commands.Cog):
 			for i in quotes:
 				if word in i:
 					count += 1
-				if word in quotes[i]:
+				elif word in quotes[i]:
 					count +=1
 			await msg.edit(content=f"There are {count} instances of '{word}'.")
 			print(f"Found {count} instances of '{word}'")
 			return
+
+		@commands.command(
+			name='quoteincludes',
+			description='Search for quotes with a specific word and return a random one from that list',
+			aliases=['qi'],
+			usage='.qi <search quiry>'
+		)
+		async def quoteincludes_command(self,ctx):
+			msg = ctx.message.content
+			prefix_used = ctx.prefix
+			alias_used = ctx.invoked_with
+			word = msg[len(prefix_used) + len(alias_used):]
+			word = word[1:]
+			print(f"Searching for {word}...")
+			msg = await ctx.send(content='Searching...')
+			searchedquotes = []
+			for i in quotes:
+				if word in i:
+					searchedquotes.append([i,quotes[i]])
+				elif word in quotes[i]:
+					searchedquotes.append([i,quotes[i]])
+			print(f"Found {len(searchedquotes)} instances of {word}")
+			quote, author = choice(list(searchedquotes))
+			sending = f"{quote}\n- {author}"
+			print(f"Sending {sending}")
+			await msg.edit(content=sending)
 
 		@commands.command(
 				name='oi',
